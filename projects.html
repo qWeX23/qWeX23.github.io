@@ -4,13 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>qWeX</title>
-	<meta name="description" content="hi">
+	<title>Projects</title>
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="manifest" href="site.webmanifest">
 	<link rel="apple-touch-icon" href="icon.png">
-
 	<!-- Place favicon.ico in the root directory -->
 
 	<link rel="stylesheet" href="css/normalize.css">
@@ -43,22 +42,32 @@
 	</nav>
 
 	<main>
-		<div class="parallax-container">
-			<div class="parallax"><img src="img/parallax.jpg"></div>
-		</div>
-		<div class="section white">
-			<div class="container">
-				<div class="row">
-					<div class="col s12 center">
-						<h1>Benjamin Joseph Churchill</h1>
-					</div>
+		<div class="container">
+			<h2>Projects</h2>
+			<p>These are some projects that I worked on in school and outside of work. More details coming soon!</p>
+			<div class="carousel carousel-slider center" data-indicators="true">
+				<!--
+				<div class="carousel-fixed-item center">
+					<a class="btn waves-effect white grey-text darken-text-2">button</a>
 				</div>
-				<div class="row">
+-->
+				<div class="carousel-item amber white-text" href="#one!">
+					<h2>UWF Capstone Project</h2>
+					<p class="white-text">Scholar Station</p>
+				</div>
+				<div class="carousel-item amber white-text" href="#two!">
+					<h2>WatBot/ Dacia Alert system</h2>
+					<p class="white-text">Watbot the meme-machine</p>
+				</div>
+				<div class="carousel-item amber white-text" href="#three!">
+					<h2>UWF Class Project</h2>
+					<p class="white-text">JackBlackBlackJack</p>
+				</div>
+				<div class="carousel-item amber white-text" href="#three!">
+					<h2>BB</h2>
+					<p class="white-text">Solving "Real world problems" with robotics</p>
 				</div>
 			</div>
-		</div>
-		<div class="parallax-container">
-			<div class="parallax"><img src="img/parallax-2.jpg"></div>
 		</div>
 	</main>
 
@@ -91,7 +100,9 @@
 	<script>
 		$(document).ready(function() {
 			$(".button-collapse").sideNav()
-			$('.parallax').parallax();
+			$('.carousel.carousel-slider').carousel({
+				fullWidth: true
+			});
 		})
 		window.ga = function() {
 			ga.q.push(arguments)
