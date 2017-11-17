@@ -31,12 +31,12 @@
 			<a href="index.html" class="brand-logo"><img style="height: 56px; background-color: white;    " class="responsive-img circle" src=favicon.ico></a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="about.html">About</a></li>
 				<li><a href="projects.html">Projects</a></li>
+				<li><a href="about.html">About</a></li>
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
-				<li><a href="about.html">About</a></li>
 				<li><a href="projects.html">Projects</a></li>
+				<li><a href="about.html">About</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -44,28 +44,67 @@
 	<main>
 		<div class="container">
 			<h2>Projects</h2>
-			<p>These are some projects that I worked on in school and outside of work. More details coming soon!</p>
-			<div class="carousel carousel-slider center" data-indicators="true">
-				<!--
-				<div class="carousel-fixed-item center">
-					<a class="btn waves-effect white grey-text darken-text-2">button</a>
+			<p>Details coming soon </p>
+			<div class="row">
+				<ul class="tabs">
+					<li class="tab col s3 black-text"><a href="#capstone">Capstone</a></li>
+					<li class="tab col s3"><a href="#watbot">WatBot</a></li>
+					<li class="tab col s3"><a href="#blackjack">blackjack</a></li>
+					<li class="tab col s3"><a href="#butlerbot">ButlerBot</a></li>
+				</ul>
+				<div id="capstone" class="col s12 grey">
+					<h3>UWF Capstone Project</h3>
+					<p>Scholar Station</p>
 				</div>
--->
-				<div class="carousel-item amber white-text" href="#one!">
-					<h2>UWF Capstone Project</h2>
-					<p class="white-text">Scholar Station</p>
+				<div id="watbot" class="col s12 grey">
+					<h3>WatBot/ Dacia Alert system</h3>
+					<p>Watbot the meme-machine</p>
 				</div>
-				<div class="carousel-item amber white-text" href="#two!">
-					<h2>WatBot/ Dacia Alert system</h2>
-					<p class="white-text">Watbot the meme-machine</p>
+				<div id="blackjack" class="col s12 grey">
+					<h3>UWF Class Project</h3>
+					<p>JackBlackBlackJack</p>
 				</div>
-				<div class="carousel-item amber white-text" href="#three!">
-					<h2>UWF Class Project</h2>
-					<p class="white-text">JackBlackBlackJack</p>
+				<div id="butlerbot" class="col s12 grey">
+					<h3>BB</h3>
+					<p>Solving "Real world problems" with robotics</p>
 				</div>
-				<div class="carousel-item amber white-text" href="#three!">
-					<h2>BB</h2>
-					<p class="white-text">Solving "Real world problems" with robotics</p>
+			</div>
+
+			<div class="row">
+				<h2>Presentations</h2>
+				<p>Slide decks from Lunch N' Learns in the office and events I have attented.</p>
+
+				<ul class="tabs">
+					<li class="tab col s3"><a href="#Mongo">MongoDB</a></li>
+					<li class="tab col s3"><a href="#DataWarehouse">Data WareHouse</a></li>
+					<li class="tab col s3"><a href="#SoftSkills">Soft Skills</a></li>
+				</ul>
+				<div id="Mongo" class="col s12 grey">
+					<h3>MongoDB</h3>
+					<p class="white-text">Showing off MongoDB to SQL users</p>
+					<div class="row">
+						<div class="col s12 center">
+							<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSQlYjlN-kJGtgvWSQL3uZI7c5biYjaOZeI38J1Co-7kLYQUuvgPkk5_6ER8quLtJODaB6BY3jk-IKO/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+						</div>
+					</div>
+				</div>
+				<div id="DataWarehouse" class="col s12 grey">
+					<h2>Data Warehousing</h2>
+					<p class="white-text">Sharing some data warehousing know how</p>
+					<div class="row">
+						<div class="col s12 center">
+							<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR9rUiz7YGHJjCMPCTdfWJ1CJjKiOpYmQB85jBOHszRdCuwdwKIrwyuKTkRJTIt7eubjK8elbeuQoLB/embed?start=false&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+						</div>
+					</div>
+				</div>
+				<div id="SoftSkills" class="col s12 grey">
+					<h2>Soft Skills</h2>
+					<p class="white-text">Presented to atendees of UWF Codefest with Michael Moore and Branden Poe</p>
+					<div class="row">
+						<div class="col s12 center">
+							<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS5uEXkPMQ_TumTH489mstiVtjlP8BLoUTZtE6QPx5qhlNFt8o5L2WWR68-zM85IH6Bddv-KpzGs4AI/embed?start=false&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -102,7 +141,7 @@
 			$(".button-collapse").sideNav()
 			$('.carousel.carousel-slider').carousel({
 				fullWidth: true
-			});
+			})
 		})
 		window.ga = function() {
 			ga.q.push(arguments)
