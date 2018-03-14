@@ -111,11 +111,15 @@ main {
 	flex: 1 0 auto;
 }
 
+nav .page-footer {
+	color: #616161
+}
+
 .carousel {
 	margin-bottom: 50px;
 }
 
-.tabs-content.carousel {	
+.tabs-content.carousel {
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -127,21 +131,33 @@ main {
 }
 
 .tab a.active {
-  color:rgb(252, 234, 37)!important;
-  background-color:Black !important;
-}
-.tabs .tab a:hover {
-  background-color: lightgrey !important;
-  color:#FFFFFF!important;
-}
-.tabs .tab a {
-  color: #efebe9!important;
-}
-.tabs .indicator{
-  background-color:#00e676 !important;
+	color: rgb(252, 234, 37)!important;
+	background-color: Black !important;
 }
 
-.nav-wrapper{
+.tabs .tab a:hover {
+	background-color: darkgrey!important;
+	color: #FFFFFF!important;
+}
+
+.tabs .tab a {
+	color: #FFFFFF!important;
+}
+
+.tabs .tab {
+	background-color: #616161!important;
+}
+
+
+.tabs .indicator {
+	background-color: #00e676 !important;
+}
+
+.divider {
+	background-color: #00e676!important
+}
+
+.nav-wrapper {
 	padding-left: 20px;
 }
 
