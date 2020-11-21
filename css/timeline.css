@@ -25,7 +25,7 @@ h1 span {
 .timeline-container {
    width: 80%;
    padding: 50px 0;
-   margin: 50px auto;
+   margin: auto;
    position: relative;
    overflow: hidden;
 }
