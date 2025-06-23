@@ -2,10 +2,12 @@ export default function About() {
   return (
     <div>
       <h1>About / Contact</h1>
-      <p>Contact me at <a href="mailto:bjc9001@gmail.com">bjc9001@gmail.com</a>.</p>
+      <p>
+        Contact me at <a href="mailto:bjc9001@gmail.com">bjc9001@gmail.com</a>.
+      </p>
       <p>
         <a
-          href="https://www.linkedin.com/in/bjc9001"
+          href="https://www.linkedin.com/in/bchurchill23/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -13,7 +15,9 @@ export default function About() {
         </a>
       </p>
       <p>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          Resume (PDF)
+        </a>
       </p>
     </div>
   );
