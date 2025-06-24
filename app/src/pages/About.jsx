@@ -1,6 +1,6 @@
-export default function About() {
+export default function About({ id }) {
   return (
-    <div>
+    <section id={id}>
       <h1>About / Contact</h1>
       <p>
         Contact me at <a href="mailto:bjc9001@gmail.com">bjc9001@gmail.com</a>.
@@ -19,6 +19,6 @@ export default function About() {
           Resume (PDF)
         </a>
       </p>
-    </div>
+    </section>
   );
 }

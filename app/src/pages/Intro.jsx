@@ -1,6 +1,6 @@
-export default function Intro() {
+export default function Intro({ id }) {
   return (
-    <section>
+    <section id={id}>
       <h1>I am Benjamin Churchill</h1>
       <p>
         I am a software engineer with 10 years experience specializing in backend
