@@ -13,4 +13,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Customizing the theme
 
-Colors and other global styles are defined using CSS variables in `src/theme.css`. Adjust these variables to quickly change the look and feel of the entire application.
+Styling is handled with [Tailwind CSS](https://tailwindcss.com). Adjust `tailwind.config.js` to tweak colors, fonts and other design tokens for the entire application.
