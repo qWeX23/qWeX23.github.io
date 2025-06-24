@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 
 const posts = import.meta.glob('../posts/*.md', { as: 'raw' });
 
-export default function Blog() {
+export default function Blog({ id }) {
   const [content, setContent] = useState('');
 
   const loadPost = async (path) => {
@@ -12,7 +12,7 @@ export default function Blog() {
   };
 
   return (
-    <div>
+    <section id={id}>
       <h1>Blog</h1>
       <ul>
         {Object.keys(posts).map((path) => (
@@ -26,6 +26,6 @@ export default function Blog() {
           <ReactMarkdown>{content}</ReactMarkdown>
         </article>
       )}
-    </div>
+    </section>
   );
 }

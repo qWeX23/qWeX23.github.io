@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Intro from './pages/Intro';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -7,21 +6,27 @@ import './App.css';
 
 export default function App() {
   return (
-    <Router>
+    <>
       <nav>
         <ul>
-          <li><Link to="/">Intro</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/blog">Blog</Link></li>
+          <li>
+            <a href="#intro">Intro</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+          <li>
+            <a href="#blog">Blog</a>
+          </li>
         </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={<Intro />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/blog" element={<Blog />} />
-      </Routes>
-    </Router>
+      <Intro id="intro" />
+      <About id="about" />
+      <Projects id="projects" />
+      <Blog id="blog" />
+    </>
   );
 }

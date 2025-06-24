@@ -13,9 +13,9 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default function Projects({ id }) {
   return (
-    <section>
+    <section id={id}>
       <h1>Projects</h1>
       <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
         {projects.map((proj) => (
