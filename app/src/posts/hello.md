@@ -1,3 +1,3 @@
 # Hello World
 
-This is a sample blog post written in **Markdown**.
+A place for my thoughts. Markdown rendered by react!
