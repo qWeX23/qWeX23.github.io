@@ -27,13 +27,10 @@ export default function Blog({ id }) {
       className="min-h-screen flex flex-col items-center justify-center gap-4 p-8 text-center"
     >
       <h1 className="text-4xl font-bold">Blog</h1>
-      <ul className="flex flex-col gap-2">
+      <ul className="flex flex-col gap-[var(--qwex-space-sm)]">
         {Object.keys(posts).map((path) => (
           <li key={path}>
-            <button
-              className="px-4 py-2 border rounded bg-blue-600 text-white hover:bg-blue-700"
-              onClick={() => loadPost(path)}
-            >
+            <button className="qwex-btn" onClick={() => loadPost(path)}>
               {path.split("/").pop()}
             </button>
           </li>

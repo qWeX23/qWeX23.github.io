@@ -7,7 +7,7 @@ export default function Contact({ id }) {
       <h1 className="text-4xl font-bold">Contact</h1>
       <p>
         <a
-          className="text-blue-600 inline-flex items-center gap-1"
+          className="qwex-link inline-flex items-center gap-1"
           href="mailto:bjc9001@gmail.com"
         >
           <MailIcon className="w-5 h-5" /> bjc9001@gmail.com
@@ -15,7 +15,7 @@ export default function Contact({ id }) {
       </p>
       <p>
         <a
-          className="text-blue-600 inline-flex items-center gap-1"
+          className="qwex-link inline-flex items-center gap-1"
           href="https://www.linkedin.com/in/bchurchill23/"
           target="_blank"
           rel="noopener noreferrer"
@@ -25,7 +25,7 @@ export default function Contact({ id }) {
       </p>
       <p>
         <a
-          className="text-blue-600"
+          className="qwex-link"
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
