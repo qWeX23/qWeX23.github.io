@@ -20,11 +20,11 @@ export default function Projects({ id }) {
       className="min-h-screen flex flex-col items-center justify-center gap-6 p-8 text-center"
     >
       <h1 className="text-4xl font-bold">Projects</h1>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-[var(--qwex-space-md)]">
         {projects.map((proj) => (
           <div
             key={proj.title}
-            className="border rounded shadow p-4 bg-white max-w-xs"
+            className="qwex-card"
           >
             <h2 className="text-xl font-semibold mb-2">{proj.title}</h2>
             <p>{proj.description}</p>

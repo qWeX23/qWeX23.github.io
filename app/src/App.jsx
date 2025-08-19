@@ -7,32 +7,22 @@ import Contact from "./pages/Contact";
 export default function App() {
   return (
     <>
-      <nav className="sticky top-0 z-10 bg-gray-100/90 backdrop-blur py-4">
-        <ul className="flex justify-center gap-4">
+      <nav className="sticky top-0 z-10 qwex-nav py-4">
+        <ul className="flex justify-center">
           <li>
-            <a className="text-blue-600 hover:underline" href="#intro">
-              Intro
-            </a>
+            <a href="#intro">Intro</a>
           </li>
           <li>
-            <a className="text-blue-600 hover:underline" href="#about">
-              About
-            </a>
+            <a href="#about">About</a>
           </li>
           <li>
-            <a className="text-blue-600 hover:underline" href="#projects">
-              Projects
-            </a>
+            <a href="#projects">Projects</a>
           </li>
           <li>
-            <a className="text-blue-600 hover:underline" href="#blog">
-              Blog
-            </a>
+            <a href="#blog">Blog</a>
           </li>
           <li>
-            <a className="text-blue-600 hover:underline" href="#contact">
-              Contact
-            </a>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </nav>
