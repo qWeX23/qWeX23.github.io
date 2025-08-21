@@ -1,3 +1,3 @@
-# Hello World
+# Blog 0
 
-A place for my thoughts. Markdown rendered by react!
+Hello world. We are rendering markdown in react. We should do this more often.

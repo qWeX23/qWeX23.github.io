@@ -5,25 +5,25 @@
 @tailwind utilities;
 
 :root {
-  --qwex-bg: #fbfbfe;
-  --qwex-fg: #0f172a;
-  --qwex-muted: #475569;
-  --qwex-card: #ffffff;
-  --qwex-border: #e6eaf2;
+  --qwex-bg: #0f1419;
+  --qwex-fg: #e6edf3;
+  --qwex-muted: #8b949e;
+  --qwex-card: #161b22;
+  --qwex-border: #30363d;
   --qwex-header-top: #0b0f14;
   --qwex-header-bottom: #111827;
   --qwex-header-a: rgba(57, 255, 20, 0.12);
   --qwex-header-b: rgba(56, 189, 248, 0.12);
   --qwex-accent: #39ff14;
   --qwex-accent-2: #38bdf8;
-  --qwex-link: #0ea5a0;
-  --qwex-shadow-soft: 0 12px 30px rgba(2, 6, 23, 0.08);
-  --qwex-shadow-lift: 0 16px 44px rgba(2, 6, 23, 0.12);
-  --qwex-shadow-glow: 0 0 20px rgba(57, 255, 20, 0.25);
+  --qwex-link: #58a6ff;
+  --qwex-shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.3);
+  --qwex-shadow-lift: 0 16px 44px rgba(0, 0, 0, 0.4);
+  --qwex-shadow-glow: 0 0 20px rgba(57, 255, 20, 0.4);
   --qwex-radius-lg: 20px;
   --qwex-radius-sm: 12px;
-  --qwex-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto,
-    "Helvetica Neue", Arial;
+  --qwex-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter,
+    Roboto, "Helvetica Neue", Arial;
   --qwex-fs-sm: 14px;
   --qwex-fs-md: 16px;
   --qwex-fs-lg: 18px;
@@ -110,7 +110,7 @@ body {
   border-radius: var(--qwex-radius-lg);
   box-shadow: var(--qwex-shadow-soft);
   padding: var(--qwex-space-md);
-  max-width: 20rem;
+  width: 100%;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -121,7 +121,7 @@ body {
 
 .qwex-btn {
   background: var(--qwex-accent);
-  color: var(--qwex-fg);
+  color: #0f1419;
   border: 1px solid var(--qwex-border);
   border-radius: var(--qwex-radius-sm);
   padding: var(--qwex-space-sm) var(--qwex-space-md);
@@ -130,6 +130,7 @@ body {
 
 .qwex-btn:hover {
   background: var(--qwex-accent-2);
+  color: #0f1419;
   box-shadow: var(--qwex-shadow-glow);
   transform: translateY(-2px);
 }
@@ -154,6 +155,96 @@ body {
   }
 }
 
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.5s ease-out forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.3s ease-out forwards;
+}
+
+/* Blog post styling */
+.prose h1 {
+  color: var(--qwex-accent);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.prose h2 {
+  color: var(--qwex-accent-2);
+  font-size: 1.5rem;
+  font-weight: semibold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  color: var(--qwex-fg);
+  font-size: 1.25rem;
+  font-weight: medium;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  color: var(--qwex-fg);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.prose a {
+  color: var(--qwex-link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.prose a:hover {
+  color: var(--qwex-accent-2);
+}
+
+.prose code {
+  background: var(--qwex-border);
+  color: var(--qwex-accent);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
+    "Courier New", monospace;
+}
+
+.prose pre {
+  background: var(--qwex-border);
+  color: var(--qwex-fg);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--qwex-accent);
+  padding-left: 1rem;
+  color: var(--qwex-muted);
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.prose ul,
+.prose ol {
+  color: var(--qwex-fg);
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin: 0.5rem 0;
 }

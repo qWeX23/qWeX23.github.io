@@ -2,37 +2,55 @@ export default function Contact({ id }) {
   return (
     <section
       id={id}
-      className="min-h-screen flex flex-col items-center justify-center gap-4 p-8 text-center"
+      className="min-h-screen flex flex-col items-center justify-center gap-8 p-8 text-center animate-fade-in-up"
     >
-      <h1 className="text-4xl font-bold">Contact</h1>
-      <p>
-        <a
-          className="qwex-link inline-flex items-center gap-1"
-          href="mailto:bjc9001@gmail.com"
-        >
-          <MailIcon className="w-5 h-5" /> bjc9001@gmail.com
-        </a>
-      </p>
-      <p>
-        <a
-          className="qwex-link inline-flex items-center gap-1"
-          href="https://www.linkedin.com/in/bchurchill23/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <LinkedInIcon className="w-5 h-5" /> LinkedIn
-        </a>
-      </p>
-      <p>
-        <a
-          className="qwex-link"
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Resume (PDF)
-        </a>
-      </p>
+      <div className="qwex-hero">
+        <h1 className="text-4xl font-bold">✉️ Contact</h1>
+        <p className="text-lg opacity-80">
+          Let's connect and build something amazing
+        </p>
+      </div>
+
+      <div className="qwex-card group relative overflow-hidden max-w-lg">
+        {/* Hacker-style accent border */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--qwex-accent)] to-[var(--qwex-accent-2)] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+
+        <div className="relative z-10 p-8 space-y-4">
+          <p className="group/item">
+            <a
+              className="qwex-link inline-flex items-center gap-3 p-3 rounded-lg border border-[var(--qwex-border)] hover:border-[var(--qwex-accent)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent)] group-hover/item:bg-opacity-5"
+              href="mailto:bjc9001@gmail.com"
+            >
+              <MailIcon className="w-5 h-5" />
+              <span>bjc9001@gmail.com</span>
+            </a>
+          </p>
+
+          <p className="group/item">
+            <a
+              className="qwex-link inline-flex items-center gap-3 p-3 rounded-lg border border-[var(--qwex-border)] hover:border-[var(--qwex-accent-2)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent-2)] group-hover/item:bg-opacity-5"
+              href="https://www.linkedin.com/in/bchurchill23/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon className="w-5 h-5" />
+              <span>LinkedIn Profile</span>
+            </a>
+          </p>
+
+          <p className="group/item">
+            <a
+              className="qwex-btn inline-flex items-center gap-3 group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="text-sm">📄</span>
+              Resume (PDF)
+            </a>
+          </p>
+        </div>
+      </div>
     </section>
   );
 }

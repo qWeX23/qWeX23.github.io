@@ -13,13 +13,13 @@ export default function App() {
             <a href="#intro">Intro</a>
           </li>
           <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
             <a href="#projects">Projects</a>
           </li>
           <li>
             <a href="#blog">Blog</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
           </li>
           <li>
             <a href="#contact">Contact</a>
@@ -27,9 +27,9 @@ export default function App() {
         </ul>
       </nav>
       <Intro id="intro" />
-      <About id="about" />
       <Projects id="projects" />
       <Blog id="blog" />
+      <About id="about" />
       <Contact id="contact" />
     </>
   );
