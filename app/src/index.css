@@ -74,15 +74,15 @@ body {
 }
 
 .qwex-nav li:nth-child(2) a::before {
-  content: "👤 ";
-}
-
-.qwex-nav li:nth-child(3) a::before {
   content: "🛠️ ";
 }
 
-.qwex-nav li:nth-child(4) a::before {
+.qwex-nav li:nth-child(3) a::before {
   content: "📚 ";
+}
+
+.qwex-nav li:nth-child(4) a::before {
+  content: "👤 ";
 }
 
 .qwex-nav li:nth-child(5) a::before {

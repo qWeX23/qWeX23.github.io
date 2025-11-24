@@ -5,7 +5,6 @@ const projects = [
       "Help players track their scores. Built with official assets and rules.",
     website: "https://qwex.co/symmetrical-robot/",
     github: "https://github.com/qWeX23/symmetrical-robot",
-    linkedin: "https://www.linkedin.com/in/yourusername/",
   },
   {
     title: "The Chicken API (🐔🌐)",
