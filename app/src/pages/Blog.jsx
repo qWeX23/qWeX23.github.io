@@ -81,23 +81,23 @@ export default function Blog({ id }) {
   return (
     <section
       id={id}
-      className="min-h-screen flex flex-col items-center justify-center gap-8 p-8 text-center animate-fade-in-up"
+      className="min-h-screen flex flex-col items-center justify-center gap-6 sm:gap-8 px-4 py-12 sm:p-8 text-center animate-fade-in-up"
     >
       <div className="qwex-hero">
-        <h1 className="text-4xl font-bold">📚 Blog</h1>
-        <p className="text-lg opacity-80">Thoughts and insights</p>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">📚 Blog</h1>
+        <p className="text-base sm:text-lg opacity-80 mt-2">Thoughts and insights</p>
       </div>
 
-      <div className="qwex-card group relative overflow-hidden max-w-2xl">
+      <div className="qwex-card group relative overflow-hidden max-w-2xl w-full mx-4 sm:mx-0">
         {/* Hacker-style accent border */}
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--qwex-accent)] to-[var(--qwex-accent-2)] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
 
-        <div className="relative z-10 p-6">
-          <ul className="flex flex-col gap-3">
+        <div className="relative z-10 p-4 sm:p-6">
+          <ul className="flex flex-col gap-2 sm:gap-3">
             {Object.keys(posts).map((path, index) => (
               <li key={path}>
                 <button
-                  className={`qwex-btn group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 inline-flex items-center gap-2 ${
+                  className={`qwex-btn group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 inline-flex items-center gap-2 text-sm sm:text-base min-h-[44px] px-4 py-2 active:scale-95 ${
                     activePost === path
                       ? "bg-[var(--qwex-accent-2)] text-[#0f1419]"
                       : ""
@@ -109,7 +109,7 @@ export default function Blog({ id }) {
                   <span className="text-xs">
                     {activePost === path ? "📖" : "📄"}
                   </span>
-                  {path.split("/").pop()}
+                  <span className="truncate">{path.split("/").pop()}</span>
                   {activePost === path && (
                     <span className="text-xs ml-1">✕</span>
                   )}
@@ -123,13 +123,13 @@ export default function Blog({ id }) {
       {content && (
         <article
           ref={articleRef}
-          className="qwex-card mt-4 text-left opacity-0 max-w-4xl relative"
+          className="qwex-card mt-2 sm:mt-4 text-left opacity-0 max-w-4xl w-full mx-4 sm:mx-0 relative"
         >
           {/* Close button */}
           <button
             onClick={closePost}
             disabled={isClosing}
-            className={`absolute top-4 right-4 text-[var(--qwex-muted)] hover:text-[var(--qwex-accent)] transition-colors duration-200 p-2 hover:bg-[var(--qwex-border)] rounded-lg ${
+            className={`absolute top-2 right-2 sm:top-4 sm:right-4 text-[var(--qwex-muted)] hover:text-[var(--qwex-accent)] transition-colors duration-200 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-[var(--qwex-border)] rounded-lg active:scale-95 ${
               isClosing ? "opacity-50 cursor-not-allowed" : ""
             }`}
             aria-label="Close post"
@@ -149,7 +149,7 @@ export default function Blog({ id }) {
             </svg>
           </button>
 
-          <div className="prose prose-invert max-w-none pr-12">
+          <div className="prose prose-invert max-w-none pr-10 sm:pr-12 text-sm sm:text-base">
             <ReactMarkdown>{content}</ReactMarkdown>
           </div>
         </article>
