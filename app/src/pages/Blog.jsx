@@ -9,11 +9,6 @@ export default function Blog({ id }) {
   const [isClosing, setIsClosing] = useState(false);
   const articleRef = useRef(null);
 
-  // Debug: log available posts
-  useEffect(() => {
-    console.log("Available posts:", Object.keys(posts));
-  }, []);
-
   const loadPost = async (path) => {
     try {
       // If clicking the same post, toggle it off
@@ -27,14 +22,11 @@ export default function Blog({ id }) {
         await closePostAnimated();
       }
 
-      console.log("Loading post:", path);
       const md = await posts[path]();
-      console.log("Post loaded:", md);
       // Vite's glob import with { query: "raw" } returns the content as default export
       setContent(md.default || md);
       setActivePost(path);
-    } catch (error) {
-      console.error("Error loading post:", error);
+    } catch {
       setContent("Error loading post content.");
       setActivePost(path);
     }

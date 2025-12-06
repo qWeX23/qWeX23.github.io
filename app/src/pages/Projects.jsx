@@ -64,6 +64,7 @@ export default function Projects({ id }) {
                     href={proj.website}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Visit ${proj.title} website (opens in new tab)`}
                     className="qwex-btn inline-flex items-center gap-2 text-sm group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200"
                   >
                     <span className="text-xs">🚀</span>
@@ -75,6 +76,7 @@ export default function Projects({ id }) {
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`View ${proj.title} source code on GitHub (opens in new tab)`}
                     className="qwex-link inline-flex items-center gap-2 px-3 py-2 text-sm border border-[var(--qwex-border)] rounded-lg hover:border-[var(--qwex-accent-2)] hover:bg-[var(--qwex-accent-2)] hover:bg-opacity-10 transition-all duration-200"
                   >
                     <span className="text-xs">⚡</span>
