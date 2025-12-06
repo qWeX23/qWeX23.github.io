@@ -32,6 +32,7 @@ export default function Contact({ id }) {
               href="https://www.linkedin.com/in/bchurchill23/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn Profile (opens in new tab)"
             >
               <LinkedInIcon className="w-5 h-5" />
               <span>LinkedIn Profile</span>
@@ -44,6 +45,7 @@ export default function Contact({ id }) {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Download Resume PDF (opens in new tab)"
             >
               <span className="text-sm">📄</span>
               Resume (PDF)
