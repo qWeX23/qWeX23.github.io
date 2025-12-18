@@ -1,61 +1,59 @@
+import PropTypes from "prop-types";
+import { Card, Section, SectionHeader } from "../components";
+
 export default function Contact({ id }) {
   return (
-    <section
-      id={id}
-      className="min-h-screen flex flex-col items-center justify-center gap-6 sm:gap-8 px-4 py-12 sm:p-8 text-center animate-fade-in-up"
-    >
-      <div className="qwex-hero">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">✉️ Contact</h1>
-        <p className="text-base sm:text-lg opacity-80 mt-2">
-          Let's connect and build something amazing
+    <Section id={id}>
+      <SectionHeader
+        emoji="✉️"
+        title="Contact"
+        subtitle="Let's connect and build something amazing"
+      />
+
+      <Card className="max-w-lg w-full mx-4 sm:mx-0" contentClassName="p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4">
+        <p className="group/item">
+          <a
+            className="qwex-link inline-flex items-center justify-center sm:justify-start gap-3 p-3 sm:p-4 min-h-[48px] w-full rounded-lg border border-[var(--qwex-border)] hover:border-[var(--qwex-accent)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent)] group-hover/item:bg-opacity-5 active:scale-[0.98] text-sm sm:text-base"
+            href="mailto:bjc9001@gmail.com"
+          >
+            <MailIcon className="w-5 h-5 flex-shrink-0" />
+            <span className="truncate">bjc9001@gmail.com</span>
+          </a>
         </p>
-      </div>
 
-      <div className="qwex-card group relative overflow-hidden max-w-lg w-full mx-4 sm:mx-0">
-        {/* Hacker-style accent border */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--qwex-accent)] to-[var(--qwex-accent-2)] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+        <p className="group/item">
+          <a
+            className="qwex-link inline-flex items-center justify-center sm:justify-start gap-3 p-3 sm:p-4 min-h-[48px] w-full rounded-lg border border-[var(--qwex-border)] hover:border-[var(--qwex-accent-2)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent-2)] group-hover/item:bg-opacity-5 active:scale-[0.98] text-sm sm:text-base"
+            href="https://www.linkedin.com/in/bchurchill23/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile (opens in new tab)"
+          >
+            <LinkedInIcon className="w-5 h-5 flex-shrink-0" />
+            <span>LinkedIn Profile</span>
+          </a>
+        </p>
 
-        <div className="relative z-10 p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4">
-          <p className="group/item">
-            <a
-              className="qwex-link inline-flex items-center justify-center sm:justify-start gap-3 p-3 sm:p-4 min-h-[48px] w-full rounded-lg border border-[var(--qwex-border)] hover:border-[var(--qwex-accent)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent)] group-hover/item:bg-opacity-5 active:scale-[0.98] text-sm sm:text-base"
-              href="mailto:bjc9001@gmail.com"
-            >
-              <MailIcon className="w-5 h-5 flex-shrink-0" />
-              <span className="truncate">bjc9001@gmail.com</span>
-            </a>
-          </p>
-
-          <p className="group/item">
-            <a
-              className="qwex-link inline-flex items-center justify-center sm:justify-start gap-3 p-3 sm:p-4 min-h-[48px] w-full rounded-lg border border-[var(--qwex-border)] hover:border-[var(--qwex-accent-2)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent-2)] group-hover/item:bg-opacity-5 active:scale-[0.98] text-sm sm:text-base"
-              href="https://www.linkedin.com/in/bchurchill23/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Profile (opens in new tab)"
-            >
-              <LinkedInIcon className="w-5 h-5 flex-shrink-0" />
-              <span>LinkedIn Profile</span>
-            </a>
-          </p>
-
-          <p className="group/item">
-            <a
-              className="qwex-btn inline-flex items-center justify-center gap-3 min-h-[48px] w-full sm:w-auto px-6 py-3 group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 active:scale-[0.98] text-sm sm:text-base"
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download Resume PDF (opens in new tab)"
-            >
-              <span className="text-sm">📄</span>
-              Resume (PDF)
-            </a>
-          </p>
-        </div>
-      </div>
-    </section>
+        <p className="group/item">
+          <a
+            className="qwex-btn inline-flex items-center justify-center gap-3 min-h-[48px] w-full sm:w-auto px-6 py-3 group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 active:scale-[0.98] text-sm sm:text-base"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download Resume PDF (opens in new tab)"
+          >
+            <span className="text-sm">📄</span>
+            Resume (PDF)
+          </a>
+        </p>
+      </Card>
+    </Section>
   );
 }
+
+Contact.propTypes = {
+  id: PropTypes.string.isRequired,
+};
 
 function MailIcon({ className }) {
   return (
@@ -72,6 +70,10 @@ function MailIcon({ className }) {
   );
 }
 
+MailIcon.propTypes = {
+  className: PropTypes.string,
+};
+
 function LinkedInIcon({ className }) {
   return (
     <svg
@@ -85,3 +87,7 @@ function LinkedInIcon({ className }) {
     </svg>
   );
 }
+
+LinkedInIcon.propTypes = {
+  className: PropTypes.string,
+};

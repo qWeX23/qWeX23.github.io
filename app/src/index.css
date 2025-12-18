@@ -43,21 +43,22 @@
   }
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling and base HTML styles */
 html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-/* Prevent horizontal overflow on mobile */
+/* Base body styles */
 body {
   overflow-x: hidden;
-}
-
-body {
   background: var(--qwex-bg);
   color: var(--qwex-fg);
   font-family: var(--qwex-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .qwex-nav {
@@ -87,23 +88,7 @@ body {
   transform: translateY(-2px);
 }
 
-.qwex-nav li:nth-child(1) a::before {
-  content: "🚀 ";
-}
-
-.qwex-nav li:nth-child(2) a::before {
-  content: "🛠️ ";
-}
-
-.qwex-nav li:nth-child(3) a::before {
-  content: "📚 ";
-}
-
-.qwex-nav li:nth-child(4) a::before {
-  content: "👤 ";
-}
-
-/* Desktop nav emoji support */
+/* Desktop nav emoji support via data attribute */
 .qwex-nav ul:not(.mobile-menu) a[data-emoji]::before {
   content: attr(data-emoji) " ";
 }
@@ -508,18 +493,6 @@ body {
     padding-left: max(1rem, env(safe-area-inset-left));
     padding-right: max(1rem, env(safe-area-inset-right));
   }
-}
-
-/* Prevent text size adjustment on orientation change */
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-/* Improve text rendering */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Make images responsive */

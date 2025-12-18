@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
+import { Card, Section, SectionHeader } from "../components";
 
 const posts = import.meta.glob("../posts/*.md", { query: "raw" });
 
@@ -9,21 +11,39 @@ export default function Blog({ id }) {
   const [isClosing, setIsClosing] = useState(false);
   const articleRef = useRef(null);
 
+  const closePostAnimated = () => {
+    return new Promise((resolve) => {
+      if (articleRef.current) {
+        setIsClosing(true);
+        articleRef.current.classList.remove("animate-fade-in-up");
+        articleRef.current.classList.add("animate-fade-out");
+
+        setTimeout(() => {
+          setContent("");
+          setActivePost("");
+          setIsClosing(false);
+          resolve();
+        }, 300);
+      } else {
+        setContent("");
+        setActivePost("");
+        resolve();
+      }
+    });
+  };
+
   const loadPost = async (path) => {
     try {
-      // If clicking the same post, toggle it off
       if (activePost === path) {
-        closePost();
+        closePostAnimated();
         return;
       }
 
-      // If switching posts while one is open, close current first
       if (activePost && activePost !== path) {
         await closePostAnimated();
       }
 
       const md = await posts[path]();
-      // Vite's glob import with { query: "raw" } returns the content as default export
       setContent(md.default || md);
       setActivePost(path);
     } catch {
@@ -32,43 +52,15 @@ export default function Blog({ id }) {
     }
   };
 
-  const closePostAnimated = () => {
-    return new Promise((resolve) => {
-      if (articleRef.current) {
-        setIsClosing(true);
-        articleRef.current.classList.remove("animate-fade-in-up");
-        articleRef.current.classList.add("animate-fade-out");
-
-        // Wait for animation to complete
-        setTimeout(() => {
-          setContent("");
-          setActivePost("");
-          setIsClosing(false);
-          resolve();
-        }, 300); // Match animation duration
-      } else {
-        setContent("");
-        setActivePost("");
-        setIsClosing(false);
-        resolve();
-      }
-    });
-  };
-
   const closePost = () => {
     closePostAnimated();
   };
 
   useEffect(() => {
     if (articleRef.current && content && !isClosing) {
-      // Reset opacity and remove any existing animation classes
-      articleRef.current.classList.remove(
-        "animate-fade-in-up",
-        "animate-fade-out"
-      );
+      articleRef.current.classList.remove("animate-fade-in-up", "animate-fade-out");
       articleRef.current.classList.add("opacity-0");
 
-      // Force reflow and then add fade-in animation
       requestAnimationFrame(() => {
         if (articleRef.current) {
           articleRef.current.classList.remove("opacity-0");
@@ -79,53 +71,45 @@ export default function Blog({ id }) {
   }, [content, isClosing]);
 
   return (
-    <section
-      id={id}
-      className="min-h-screen flex flex-col items-center justify-center gap-6 sm:gap-8 px-4 py-12 sm:p-8 text-center animate-fade-in-up"
-    >
-      <div className="qwex-hero">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">📚 Blog</h1>
-        <p className="text-base sm:text-lg opacity-80 mt-2">Thoughts and insights</p>
-      </div>
+    <Section id={id}>
+      <SectionHeader
+        emoji="📚"
+        title="Blog"
+        subtitle="Thoughts and insights"
+      />
 
-      <div className="qwex-card group relative overflow-hidden max-w-2xl w-full mx-4 sm:mx-0">
-        {/* Hacker-style accent border */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--qwex-accent)] to-[var(--qwex-accent-2)] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-
-        <div className="relative z-10 p-4 sm:p-6">
-          <ul className="flex flex-col gap-2 sm:gap-3">
-            {Object.keys(posts).map((path, index) => (
-              <li key={path}>
-                <button
-                  className={`qwex-btn group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 inline-flex items-center gap-2 text-sm sm:text-base min-h-[44px] px-4 py-2 active:scale-95 ${
-                    activePost === path
-                      ? "bg-[var(--qwex-accent-2)] text-[#0f1419]"
-                      : ""
-                  } ${isClosing ? "opacity-50 cursor-not-allowed" : ""}`}
-                  onClick={() => !isClosing && loadPost(path)}
-                  disabled={isClosing}
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <span className="text-xs">
-                    {activePost === path ? "📖" : "📄"}
-                  </span>
-                  <span className="truncate">{path.split("/").pop()}</span>
-                  {activePost === path && (
-                    <span className="text-xs ml-1">✕</span>
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <Card className="max-w-2xl w-full mx-4 sm:mx-0">
+        <ul className="flex flex-col gap-2 sm:gap-3">
+          {Object.keys(posts).map((path, index) => (
+            <li key={path}>
+              <button
+                className={`qwex-btn group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 inline-flex items-center gap-2 text-sm sm:text-base min-h-[44px] px-4 py-2 active:scale-95 ${
+                  activePost === path
+                    ? "bg-[var(--qwex-accent-2)] text-[#0f1419]"
+                    : ""
+                } ${isClosing ? "opacity-50 cursor-not-allowed" : ""}`}
+                onClick={() => !isClosing && loadPost(path)}
+                disabled={isClosing}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <span className="text-xs">
+                  {activePost === path ? "📖" : "📄"}
+                </span>
+                <span className="truncate">{path.split("/").pop()}</span>
+                {activePost === path && (
+                  <span className="text-xs ml-1">✕</span>
+                )}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </Card>
 
       {content && (
         <article
           ref={articleRef}
-          className="qwex-card mt-2 sm:mt-4 text-left opacity-0 max-w-4xl w-full mx-4 sm:mx-0 relative"
+          className="qwex-card mt-2 sm:mt-4 text-left opacity-0 max-w-4xl w-full mx-4 sm:mx-0 relative p-4 sm:p-6"
         >
-          {/* Close button */}
           <button
             onClick={closePost}
             disabled={isClosing}
@@ -154,6 +138,10 @@ export default function Blog({ id }) {
           </div>
         </article>
       )}
-    </section>
+    </Section>
   );
 }
+
+Blog.propTypes = {
+  id: PropTypes.string.isRequired,
+};
