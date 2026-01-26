@@ -1,25 +1,28 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap");
 
 :root {
-  --qwex-bg: #0f1419;
-  --qwex-fg: #e6edf3;
-  --qwex-muted: #8b949e;
-  --qwex-card: #161b22;
-  --qwex-border: #30363d;
-  --qwex-header-top: #0b0f14;
-  --qwex-header-bottom: #111827;
-  --qwex-header-a: rgba(57, 255, 20, 0.12);
-  --qwex-header-b: rgba(56, 189, 248, 0.12);
-  --qwex-accent: #39ff14;
-  --qwex-accent-2: #38bdf8;
-  --qwex-link: #58a6ff;
-  --qwex-shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.3);
-  --qwex-shadow-lift: 0 16px 44px rgba(0, 0, 0, 0.4);
-  --qwex-shadow-glow: 0 0 20px rgba(57, 255, 20, 0.4);
+  --qwex-bg: #0c1116;
+  --qwex-fg: #e7edf4;
+  --qwex-muted: #9aa6b2;
+  --qwex-card: #141a21;
+  --qwex-border: #22303a;
+  --qwex-header-top: #0a0f14;
+  --qwex-header-bottom: #111821;
+  --qwex-header-a: rgba(125, 211, 252, 0.12);
+  --qwex-header-b: rgba(167, 243, 208, 0.12);
+  --qwex-accent: #7dd3fc;
+  --qwex-accent-2: #a7f3d0;
+  --qwex-link: #8ab4f8;
+  --qwex-shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.28);
+  --qwex-shadow-lift: 0 16px 36px rgba(0, 0, 0, 0.38);
+  --qwex-shadow-glow: 0 0 16px rgba(125, 211, 252, 0.25);
   --qwex-radius-lg: 20px;
   --qwex-radius-sm: 12px;
-  --qwex-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter,
-    Roboto, "Helvetica Neue", Arial;
+  --qwex-font-body: "Work Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", "Helvetica Neue", Arial;
+  --qwex-font-display: "Space Grotesk", "Work Sans", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", "Helvetica Neue", Arial;
   --qwex-fs-sm: 14px;
   --qwex-fs-md: 16px;
   --qwex-fs-lg: 18px;
@@ -54,9 +57,20 @@ html {
 /* Base body styles */
 body {
   overflow-x: hidden;
-  background: var(--qwex-bg);
+  background: radial-gradient(
+      1200px 800px at 12% -10%,
+      rgba(125, 211, 252, 0.14),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 650px at 88% 10%,
+      rgba(167, 243, 208, 0.12),
+      transparent 55%
+    ),
+    var(--qwex-bg);
+  background-attachment: fixed;
   color: var(--qwex-fg);
-  font-family: var(--qwex-font);
+  font-family: var(--qwex-font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -67,8 +81,7 @@ body {
     var(--qwex-header-top),
     var(--qwex-header-bottom)
   );
-  box-shadow: 0 2px 4px var(--qwex-border), 0 0 20px var(--qwex-header-a),
-    0 0 20px var(--qwex-header-b);
+  box-shadow: 0 1px 0 var(--qwex-border), 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 .qwex-nav ul {
@@ -79,13 +92,15 @@ body {
   color: var(--qwex-link);
   padding: var(--qwex-space-sm) var(--qwex-space-md);
   border-radius: var(--qwex-radius-sm);
-  transition: box-shadow 0.2s, transform 0.2s, color 0.2s;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, transform 0.2s, color 0.2s;
 }
 
 .qwex-nav a:hover {
   color: var(--qwex-accent);
-  box-shadow: var(--qwex-shadow-glow);
-  transform: translateY(-2px);
+  background: rgba(125, 211, 252, 0.08);
+  transform: translateY(-1px);
 }
 
 /* Desktop nav emoji support via data attribute */
@@ -233,49 +248,60 @@ body {
 
 .qwex-hero h1 {
   font-size: var(--qwex-fs-xxl);
-  color: var(--qwex-accent);
-  text-shadow: var(--qwex-shadow-glow);
+  color: var(--qwex-fg);
+  font-family: var(--qwex-font-display);
+  letter-spacing: -0.02em;
 }
 
 .qwex-hero p {
   font-size: var(--qwex-fs-lg);
   color: var(--qwex-muted);
+  letter-spacing: 0.01em;
+}
+
+.qwex-title {
+  font-family: var(--qwex-font-display);
+  letter-spacing: -0.015em;
 }
 
 .qwex-card {
-  background: var(--qwex-card);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.22)),
+    var(--qwex-card);
   border: 1px solid var(--qwex-border);
   border-radius: var(--qwex-radius-lg);
   box-shadow: var(--qwex-shadow-soft);
   padding: var(--qwex-space-md);
   width: 100%;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .qwex-card:hover {
   box-shadow: var(--qwex-shadow-lift);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
+  border-color: rgba(125, 211, 252, 0.35);
 }
 
 .qwex-btn {
   background: var(--qwex-accent);
-  color: #0f1419;
+  color: #0b1015;
   border: 1px solid var(--qwex-border);
   border-radius: var(--qwex-radius-sm);
   padding: var(--qwex-space-sm) var(--qwex-space-md);
+  font-weight: 600;
+  letter-spacing: 0.02em;
   transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .qwex-btn:hover {
   background: var(--qwex-accent-2);
-  color: #0f1419;
-  box-shadow: var(--qwex-shadow-glow);
+  color: #0b1015;
+  box-shadow: 0 0 16px rgba(167, 243, 208, 0.25);
   transform: translateY(-2px);
 }
 
 .qwex-link {
   color: var(--qwex-link);
-  transition: color 0.2s;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 
 .qwex-link:hover {
@@ -350,6 +376,12 @@ body {
   color: var(--qwex-accent-2);
 }
 
+.prose a:where(:not(.qwex-btn)) {
+  text-decoration: underline;
+  text-decoration-color: rgba(125, 211, 252, 0.4);
+  text-underline-offset: 3px;
+}
+
 .prose code {
   background: var(--qwex-border);
   color: var(--qwex-accent);
@@ -368,6 +400,12 @@ body {
   margin: 1rem 0;
 }
 
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
 .prose blockquote {
   border-left: 4px solid var(--qwex-accent);
   padding-left: 1rem;
@@ -383,8 +421,54 @@ body {
   padding-left: 1.5rem;
 }
 
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
 .prose li {
   margin: 0.5rem 0;
+}
+
+.prose li::marker {
+  color: var(--qwex-accent-2);
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--qwex-border);
+  margin: 2rem 0;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95em;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--qwex-border);
+  padding: 0.5rem 0.75rem;
+}
+
+.prose th {
+  background: rgba(125, 211, 252, 0.08);
+  color: var(--qwex-fg);
+  text-align: left;
+}
+
+.prose tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.prose img {
+  border-radius: 12px;
+  border: 1px solid var(--qwex-border);
 }
 
 /* ===== MOBILE IMPROVEMENTS ===== */
