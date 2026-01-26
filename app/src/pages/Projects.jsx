@@ -19,6 +19,19 @@ const projects = [
     github: "https://github.com/qWeX23/chicken-api",
   },
   {
+    id: "music-link-swap",
+    title: "Music Link Swap",
+    emoji: "🎵🔗",
+    description: "Convert music links between streaming services.",
+    website: "https://music-link-swap.qwex.co/",
+  },
+  {
+    id: "tanks",
+    title: "Tanks",
+    description: "real time llm tank showdown",
+    website: "https://tanks.qwex.co/",
+  },
+  {
     id: "secret-ca",
     title: "Secret Project CA",
     description: "-",

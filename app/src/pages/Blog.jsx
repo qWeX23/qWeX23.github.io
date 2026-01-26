@@ -1,15 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Card, Section, SectionHeader } from "../components";
 
-const posts = import.meta.glob("../posts/*.md", { query: "raw" });
+const posts = import.meta.glob("../posts/*.md", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
 
 export default function Blog({ id }) {
   const [content, setContent] = useState("");
   const [activePost, setActivePost] = useState("");
   const [isClosing, setIsClosing] = useState(false);
   const articleRef = useRef(null);
+  const postEntries = Object.entries(posts);
 
   const closePostAnimated = () => {
     return new Promise((resolve) => {
@@ -32,7 +38,20 @@ export default function Blog({ id }) {
     });
   };
 
-  const loadPost = async (path) => {
+  const resolvePostContent = async (post) => {
+    if (typeof post === "string") {
+      return post;
+    }
+
+    if (typeof post === "function") {
+      const result = await post();
+      return typeof result === "string" ? result : result?.default;
+    }
+
+    return post?.default;
+  };
+
+  const loadPost = async (path, post) => {
     try {
       if (activePost === path) {
         closePostAnimated();
@@ -43,8 +62,8 @@ export default function Blog({ id }) {
         await closePostAnimated();
       }
 
-      const md = await posts[path]();
-      setContent(md.default || md);
+      const markdown = await resolvePostContent(post);
+      setContent(markdown || "");
       setActivePost(path);
     } catch {
       setContent("Error loading post content.");
@@ -80,7 +99,7 @@ export default function Blog({ id }) {
 
       <Card className="max-w-2xl w-full mx-4 sm:mx-0">
         <ul className="flex flex-col gap-2 sm:gap-3">
-          {Object.keys(posts).map((path, index) => (
+          {postEntries.map(([path, post], index) => (
             <li key={path}>
               <button
                 className={`qwex-btn group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 inline-flex items-center gap-2 text-sm sm:text-base min-h-[44px] px-4 py-2 active:scale-95 ${
@@ -88,7 +107,7 @@ export default function Blog({ id }) {
                     ? "bg-[var(--qwex-accent-2)] text-[#0f1419]"
                     : ""
                 } ${isClosing ? "opacity-50 cursor-not-allowed" : ""}`}
-                onClick={() => !isClosing && loadPost(path)}
+                onClick={() => !isClosing && loadPost(path, post)}
                 disabled={isClosing}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -134,7 +153,7 @@ export default function Blog({ id }) {
           </button>
 
           <div className="prose prose-invert max-w-none pr-10 sm:pr-12 text-sm sm:text-base">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
           </div>
         </article>
       )}
