@@ -5,15 +5,14 @@ export default function Contact({ id }) {
   return (
     <Section id={id}>
       <SectionHeader
-        emoji="✉️"
         title="Contact"
         subtitle="Let's connect and build something amazing"
       />
 
-      <Card className="max-w-lg w-full mx-4 sm:mx-0" contentClassName="p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4">
+      <Card className="max-w-lg w-full mx-4 sm:mx-0" contentClassName="p-3 sm:p-4 md:p-5 space-y-2 sm:space-y-3">
         <p className="group/item">
           <a
-            className="qwex-link inline-flex items-center justify-center sm:justify-start gap-3 p-3 sm:p-4 min-h-[48px] w-full rounded-lg border border-[var(--qwex-border)] hover:border-[var(--qwex-accent)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent)] group-hover/item:bg-opacity-5 active:scale-[0.98] text-sm sm:text-base"
+            className="qwex-link inline-flex items-center justify-center sm:justify-start gap-3 p-3 sm:p-4 min-h-[48px] w-full rounded-md border border-[var(--qwex-border)] hover:border-[var(--qwex-accent)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent)] group-hover/item:bg-opacity-5 active:scale-[0.98] text-xs sm:text-sm"
             href="mailto:bjc9001@gmail.com"
           >
             <MailIcon className="w-5 h-5 flex-shrink-0" />
@@ -23,7 +22,7 @@ export default function Contact({ id }) {
 
         <p className="group/item">
           <a
-            className="qwex-link inline-flex items-center justify-center sm:justify-start gap-3 p-3 sm:p-4 min-h-[48px] w-full rounded-lg border border-[var(--qwex-border)] hover:border-[var(--qwex-accent-2)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent-2)] group-hover/item:bg-opacity-5 active:scale-[0.98] text-sm sm:text-base"
+            className="qwex-link inline-flex items-center justify-center sm:justify-start gap-3 p-3 sm:p-4 min-h-[48px] w-full rounded-md border border-[var(--qwex-border)] hover:border-[var(--qwex-accent-2)] transition-all duration-200 group-hover/item:bg-[var(--qwex-accent-2)] group-hover/item:bg-opacity-5 active:scale-[0.98] text-xs sm:text-sm"
             href="https://www.linkedin.com/in/bchurchill23/"
             target="_blank"
             rel="noopener noreferrer"
@@ -36,13 +35,12 @@ export default function Contact({ id }) {
 
         <p className="group/item">
           <a
-            className="qwex-btn inline-flex items-center justify-center gap-3 min-h-[48px] w-full sm:w-auto px-6 py-3 group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 active:scale-[0.98] text-sm sm:text-base"
+            className="qwex-btn inline-flex items-center justify-center gap-3 min-h-[48px] w-full sm:w-auto px-5 py-3 group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 active:scale-[0.98] text-xs sm:text-sm"
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Download Resume PDF (opens in new tab)"
           >
-            <span className="text-sm">📄</span>
             Resume (PDF)
           </a>
         </p>
