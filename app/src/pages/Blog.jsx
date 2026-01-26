@@ -92,7 +92,6 @@ export default function Blog({ id }) {
   return (
     <Section id={id}>
       <SectionHeader
-        emoji="📚"
         title="Blog"
         subtitle="Thoughts and insights"
       />
@@ -102,7 +101,7 @@ export default function Blog({ id }) {
           {postEntries.map(([path, post], index) => (
             <li key={path}>
               <button
-                className={`qwex-btn group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 inline-flex items-center gap-2 text-sm sm:text-base min-h-[44px] px-4 py-2 active:scale-95 ${
+                className={`qwex-btn group-hover:shadow-[var(--qwex-shadow-glow)] transition-all duration-200 inline-flex items-center gap-2 text-xs sm:text-sm min-h-[44px] px-3 py-2 active:scale-95 ${
                   activePost === path
                     ? "bg-[var(--qwex-accent-2)] text-[#0f1419]"
                     : ""
@@ -111,23 +110,20 @@ export default function Blog({ id }) {
                 disabled={isClosing}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <span className="text-xs">
-                  {activePost === path ? "📖" : "📄"}
-                </span>
-                <span className="truncate">{path.split("/").pop()}</span>
-                {activePost === path && (
-                  <span className="text-xs ml-1">✕</span>
-                )}
-              </button>
+                  <span className="truncate">{path.split("/").pop()}</span>
+                  {activePost === path && (
+                    <span className="text-xs ml-1">[close]</span>
+                  )}
+                </button>
             </li>
           ))}
         </ul>
       </Card>
 
       {content && (
-        <article
+         <article
           ref={articleRef}
-          className="qwex-card mt-2 sm:mt-4 text-left opacity-0 max-w-4xl w-full mx-4 sm:mx-0 relative p-4 sm:p-6"
+          className="qwex-card mt-2 sm:mt-3 text-left opacity-0 max-w-4xl w-full mx-4 sm:mx-0 relative p-3 sm:p-4"
         >
           <button
             onClick={closePost}
@@ -152,7 +148,7 @@ export default function Blog({ id }) {
             </svg>
           </button>
 
-          <div className="prose prose-invert max-w-none pr-10 sm:pr-12 text-sm sm:text-base">
+          <div className="prose prose-invert max-w-none pr-10 sm:pr-12 text-xs sm:text-sm">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
           </div>
         </article>

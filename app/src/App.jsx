@@ -6,11 +6,11 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 
 const navItems = [
-  { href: "#intro", label: "Intro", emoji: "🚀" },
-  { href: "#projects", label: "Projects", emoji: "🛠️" },
-  { href: "#blog", label: "Blog", emoji: "📚" },
-  { href: "#about", label: "About", emoji: "👤" },
-  { href: "#contact", label: "Contact", emoji: "✉️" },
+  { href: "#intro", label: "Intro" },
+  { href: "#projects", label: "Projects" },
+  { href: "#blog", label: "Blog" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function App() {
@@ -43,12 +43,12 @@ export default function App() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 qwex-nav py-3 md:py-4 px-4">
+      <nav className="sticky top-0 z-50 qwex-nav py-2 md:py-2 px-3">
         {/* Desktop Navigation */}
         <ul className="hidden md:flex justify-center">
           {navItems.map((item) => (
             <li key={item.href}>
-              <a href={item.href} data-emoji={item.emoji}>
+              <a href={item.href}>
                 {item.label}
               </a>
             </li>
@@ -59,7 +59,7 @@ export default function App() {
         <div className="md:hidden flex items-center justify-between">
           <a
             href="#intro"
-            className="text-[var(--qwex-accent)] font-bold text-lg"
+            className="text-[var(--qwex-accent)] font-bold text-base"
             onClick={handleNavClick}
           >
             BC

@@ -4,7 +4,7 @@ export default function Section({ id, children, className = "" }) {
   return (
     <section
       id={id}
-      className={`min-h-screen flex flex-col items-center justify-center gap-6 sm:gap-8 px-4 py-12 sm:p-8 text-center animate-fade-in-up ${className}`}
+      className={`flex flex-col items-center justify-start gap-4 sm:gap-5 px-4 py-6 sm:py-8 text-center animate-fade-in-up ${className}`}
     >
       {children}
     </section>
