@@ -6,7 +6,19 @@ const projects = [
     id: "valeria",
     title: "Valeria: Card Kingdoms Score Card",
     description:
-      "Help players track their scores. Built with official assets and rules.",
+      "Official score tracker for Valeria: Card Kingdoms with Duke selection and live scoring.",
+    highlights: [
+      "Duke selector with portrait art and rule-accurate scoring",
+      "Quick +/- counters for resources, monsters, and domain points",
+      "Live total score updates for endgame scoring",
+      "Built for fast tabletop use on mobile",
+    ],
+    implementation: [
+      "React (Create React App) frontend",
+      "Custom Duke scoring engine",
+      "Asset-driven UI with official game art",
+      "Deployed on GitHub Pages",
+    ],
     website: "https://qwex.co/symmetrical-robot/",
     github: "https://github.com/qWeX23/symmetrical-robot",
   },
