@@ -47,8 +47,7 @@ const projects = [
     id: "music-link-swap",
     title: "Music Link Swap",
     emoji: "🎵🔗",
-    description:
-      "Convert music links between streaming services with a clean, shareable URL.",
+    description: "Convert music links between streaming services.",
     highlights: [
       "Dead simple app to swap between Spotify and Apple Music",
       "Convert links from service to service quickly and easily",
@@ -67,7 +66,7 @@ const projects = [
     id: "tanks",
     title: "Tanks",
     description:
-      "A command center for running AI-driven tank battles, from commander setup to live engagements.",
+      "A command center for running AI-driven tank battles.",
     highlights: [
       "Configure Red/Blue commanders with scripted archetypes or LLM-driven strategies",
       "Live battle runs with manual and AI control options",
@@ -136,7 +135,7 @@ export default function Projects({ id }) {
               </p>
 
               {proj.highlights && proj.highlights.length > 0 && (
-                <ul className="text-[var(--qwex-muted)] text-xs sm:text-sm space-y-1.5 mb-3 sm:mb-5 text-left">
+                <ul className="text-[var(--qwex-muted)] text-xs sm:text-sm space-y-1 sm:space-y-1.5 mb-3 sm:mb-5 text-left">
                   {proj.highlights.map((item) => (
                     <li key={item} className="flex gap-2">
                       <span aria-hidden="true" className="text-[var(--qwex-accent)]">•</span>
@@ -151,7 +150,7 @@ export default function Projects({ id }) {
                   <p className="text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.2em] text-[var(--qwex-muted)] mb-2">
                     Implementation
                   </p>
-                  <ul className="text-[var(--qwex-muted)] text-xs sm:text-sm space-y-1.5">
+                  <ul className="text-[var(--qwex-muted)] text-xs sm:text-sm space-y-1 sm:space-y-1.5">
                     {proj.implementation.map((item) => (
                       <li key={item} className="flex gap-2">
                         <span aria-hidden="true" className="text-[var(--qwex-accent-2)]">•</span>
