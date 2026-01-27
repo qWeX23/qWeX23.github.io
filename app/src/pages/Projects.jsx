@@ -47,13 +47,41 @@ const projects = [
     id: "music-link-swap",
     title: "Music Link Swap",
     emoji: "🎵🔗",
-    description: "Convert music links between streaming services.",
+    description:
+      "Convert music links between streaming services with a clean, shareable URL.",
+    highlights: [
+      "Dead simple app to swap between Spotify and Apple Music",
+      "Convert links from service to service quickly and easily",
+      "Clean, shareable URLs for sending to friends",
+      "Raycast extension coming soon",
+    ],
+    implementation: [
+      "Go backend API serving HTML and JSON",
+      "HTMX frontend for partial page updates",
+      "Custom Spotify/Apple Music link resolver",
+      "Self-hosted behind Cloudflare Tunnel",
+    ],
     website: "https://music-link-swap.qwex.co/",
   },
   {
     id: "tanks",
     title: "Tanks",
-    description: "real time llm tank showdown",
+    description:
+      "A command center for running AI-driven tank battles, from commander setup to live engagements.",
+    highlights: [
+      "Configure Red/Blue commanders with scripted archetypes or LLM-driven strategies",
+      "Live battle runs with manual and AI control options",
+      "Battle history with detailed match records",
+      "Strategy guide with unit roles, tactics, and balance tables",
+    ],
+    implementation: [
+      "HTML5 canvas single-page battle view with custom multi-layer rendering",
+      "Server-rendered pages for setup, guide, and history",
+      "TypeScript engine and API running on Bun",
+      "LLM-driven commanders via Ollama",
+      "SQLite for battle storage",
+      "Self-hosted behind Cloudflare Tunnel",
+    ],
     website: "https://tanks.qwex.co/",
   },
   {
